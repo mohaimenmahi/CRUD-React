@@ -5,12 +5,12 @@ import ItemService from './ItemService';
 class EditItem extends Component {
 	constructor(props){
 	  super(props);
-		this.addItemService = new ItemService();
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
+	  this.addItemService = new ItemService();
+	  this.handleChange = this.handleChange.bind(this);
+	  this.handleSubmit = this.handleSubmit.bind(this);
 	  this.state = {
-			items: ''
-		};
+		items: ''
+	  };
 	}
 	componentDidMount() {
 		axios.get('http://lcoalhost:4200/items/edit/'+this.props.match.params.id)
@@ -33,12 +33,12 @@ class EditItem extends Component {
     return(
       <div className="container">
         <form onSubmit={this.handleSubmit}>
-					<label>
-						Edit Item:
-						<input type="text" value={this.state.items.item} onChange={this.handleChange} className="form-control" />
-					</label><br />
-				<input type="submit" value="Update" className="btn btn-primary" />
-				</form>
+		<label>
+		    Edit Item:
+		    <input type="text" value={this.state.items.item} onChange={this.handleChange} className="form-control" />
+		</label><br />
+		<input type="submit" value="Update" className="btn btn-primary" />
+	</form>
       </div>
     );
   }
